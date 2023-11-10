@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+  <link rel="icon" href="assets/images/icon.jpg">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="fonts.css">
+
+  <title>Game</title>
+
+  <!-- HTML -->
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="game.css">
+  <link rel="stylesheet" href="fonts.css">
+
+</head>
+
+<body>
+  
+  <div id="achievement">
+  <p>Achievement</p>
+  </div>
+  <p id="task">Achievements Tasks</p>
+  <p id="taskclose">close</p>
+  <div id="achievementDiv"></div>
+  
+  <div id="cover"></div>
+<div id="prompt">
+  <div id="promptContent"></div>
+  <p id="promptExit">EXIT</p>
+</div>
+<div class="gameSuccess">
+  
+  
+  <p id="levelpassed">Level 1 <br> Passed! 🎉👏</p>
+  <div class="rewards">
+    <p id="rewardcoin">+100 Coins</p>
+    <p id="rewardlevel">Level 2!</p>
+    <p id="rewardhp">+10 HP</p>
+  </div>
+  <p id="next">Next</p>
+  
+</div>
+
+
+  <p id="hit">combo hit x2</p>
+  <div id="timer">
+    <p>Timer</p>
+  </div>
+  <img src="assets/images/lightning.png" id="lightning">
+  <canvas id="gameWorld">
+  </canvas>
+  <canvas id="joypad">
+  </canvas>
+  <div id="slashpad"></div>
+
+
+  <div class="gameHeader">
+    <p class="gameTxt" id="gameStat">G</p>
+    <p class="gameDate gameTxt">Coins [100]  : Level [1]</p>
+    <div></div>
+    <div class="CInfo" id="networkStat">
+
+    </div>
+
+  </div>
+
+
+  <div class="gameMenu">
+
+    <div></div>
+
+    <div class="gameBody">
+
+      <div class="gameInfo">
+        <div class="ginfoL">
+
+          <div class="ginfoCircle">
+            <img src="" class="ginfoImg" id="ginfoSkin">
+          </div>
+          <div class="ginfoLine"></div>
+          <div class="ginfoCircle">
+            <img src="" class="ginfoImg" id="ginfoElement">
+          </div>
+          <div class="ginfoLine"></div>
+          <div class="ginfoCircle">
+            <img src="" class="ginfoImg" id="ginfoSword">
+          </div>
+          <div class="ginfoLine"></div>
+          <div class="ginfoCircle">
+            <img src="" class="ginfoImg" id="ginfoMode">
+          </div>
+
+
+        </div>
+
+      </div>
+      <div class="gameSetup">
+        <p class="gameSet" id="character">Character</p>
+
+      </div>
+    </div>
+    <div class="gamePlay">
+      <p class="gameSet" id="gamePlay">Play</p>
+    </div>
+    <div class="gameFooter">
+      <p class="gameTxt"></p>
+      <p class="gameTxt">
+        Disclaimer: The Game does not reflect or represent any kind in any form of harm, violence or opinion. The Game is merely a result of imagination and the names or places mentioned in this game are entirely fictitious. Any similarities to names and places is entirely coincidental.
+        
+         </p>
+
+    </div>
+  </div>
+
+  <div class="gameDiv">
+
+    <div class="gameOptions">
+      <div class="gameOpt">
+        <p class="gameOpts skin" id="skin">Skin</p>
+        <p class="gameOpts sword" id="sword">Items</p>
+        <p class="gameOpts element" id="element">Element</p>
+        <p class="gameOpts mode" id="mode">Mode</p>
+      </div>
+      <div class="gameContent">
+
+        <div class="gameContentSkins">
+        </div>
+        <div class="gameContentSwords">
+
+        </div>
+        <div class="gameContentElements">
+          <div class=""></div>
+          <div class="elementsDiv" id="fire">
+            <img class="elImg" id="fireImg" src="assets/images/fire.png">
+          </div>
+          <div class=""></div>
+          <div class="elementsDiv" id="air">
+            <img class="elImg" id="airImg" src="assets/images/air.png">
+          </div>
+          <div class=""></div>
+          <div class="elementsDiv" id="water">
+            <img class="elImg" id="waterImg" src="assets/images/water.png">
+          </div>
+          <div class=""></div>
+          <div class="elementsDiv" id="earth">
+            <img class="elImg" id="earthImg" src="assets/images/earth.png">
+          </div>
+          <div class=""></div>
+        </div>
+        <div class="gameContentModes">
+          <div class="modes modeCounter">
+            <p class="modeCounterTxt mctxtR">Zombie Speed</p>
+            <div class="modeCounterLevel mclr">
+              <div class="mclInner" id="zSpeed"></div>
+
+            </div>
+            <div></div>
+            <p class="modeCounterTxt mctxtR">Zombie Damage</p>
+            <div class="modeCounterLevel mclr">
+              <div class="mclInner" id="zDamage"></div>
+            </div>
+          </div>
+          <div class="modes modeIcon">
+            <div class="modeIconInner"></div>
+          </div>
+          <div class="modes modeCounter">
+            <p class="modeCounterTxt mctxtL">Zombie Count</p>
+            <div class="modeCounterLevel">
+              <div class="mclInner" id="zCount"></div>
+
+            </div>
+            <div></div>
+            <p class="modeCounterTxt mctxtL">Zombie LifeSpan</p>
+            <div class="modeCounterLevel">
+              <div class="mclInner" id="zLife"></div>
+
+            </div>
+          </div>
+          <div class="modes modeClick" id="pro">
+            <div></div>
+            <p>🏅<br>Pro</p>
+            <div></div>
+          </div>
+          <div class="modes modeClick" id="beginner">
+            <div></div>
+            <p>🔰<br>Beginner</p>
+            <div></div>
+          </div>
+          <div class="modes modeClick" id="expert">
+            <div></div>
+            <p>🛡️<br>Expert</p>
+            <div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <p id="exitSetting">» Exit «</p>
+
+  </div>
+
+
+  <!------- On Game User Interface ------------->
+
+  <div class="onGameBody">
+    <div></div>
+    <div class="ogbR">
+  
+  <div class="skillContainer thirdSkill" >
+    <div class="progress">
+      <span class="progress-value"></span>
+            <img src="assets/images/thirdSkill.png" class="skillImg">
+
+    </div>
+  </div>
+  <div class="skillContainer secondSkill">
+    <div class="progress">
+      <span class="progress-value"></span>
+            <img src="assets/images/secondSkill.png" class="skillImg">
+
+    </div>
+  </div>
+    <div class="skillContainer firstSkill">
+    <div class="progress">
+      <span class="progress-value"></span>
+      <img src="assets/images/firstSkill.png" class="skillImg">
+    </div>
+  </div>
+  <!----------
+      <div class="skills" id="thirdskilldiv">
+        <div class="skillCounter">
+          <div class="skillCounterInner" id="thirdskill"></div>
+        </div>
+        <img src="" class="skillImg" id="thirdskillbutton">
+      </div>
+      <div class="skills" id="secondskilldiv">
+        <div class="skillCounter">
+          <div class="skillCounterInner" id="secondskill"></div>
+        </div>
+        <img src="" class="skillImg" id="secondskillbutton">
+      </div>
+      <div class="skills" id="firstskilldiv">
+        <div class="skillCounter">
+          <div class="skillCounterInner" id="firstskill"></div>
+        </div>
+        <img src="" id="firstskillbutton" class="skillImg">
+      </div>
+  
+  --------->
+  
+    </div>
+  </div>
+
+
+  <div class="preloader"></div>
+  <div class="gameLoader">
+
+    <img class="iconloader" src="assets/images/icon.png" alt="">
+
+  </div>
+
+  <!-- Project -->
+  <script type="module" src="game.js"></script>
+  <script src="src/TweenMax.min.js"></script>
+  <script src="src/marvinj-1.0.js"></script>
+  <script src="src/jquery-3.6.0.js"></script>
+</body>
+
+</html>
